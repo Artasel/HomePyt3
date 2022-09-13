@@ -1,0 +1,15 @@
+# Задайте список из нескольких чисел. Напишите программу, которая найдёт сумму элементов списка, стоящих на нечётной позиции.
+import random
+
+list = []
+i = 0
+result = 0
+while i < 4:
+    list.append(random.randint(0, 123))
+    j = i
+    if j % 2 != 0:
+        result += list[j]
+    i += 1
+
+print(list)
+print(result)

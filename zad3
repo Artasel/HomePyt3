@@ -1,0 +1,33 @@
+# Задайте список из вещественных чисел. Напишите программу, которая найдёт разницу между максимальным и минимальным значением дробной части 
+# элементов.
+# Пример:
+# [1.1, 1.2, 3.1, 5.17, 10.02] => 0.18 или 18
+# [4.07, 5.1, 8.2444, 6.98] - 0.91 или 91
+
+import random
+
+i = 0
+list = []
+while i < 4:  # получаю список вещественных чисел
+    list.append(round(random.uniform(0, 20), 2))
+    i += 1
+print(list)
+list2 = []
+for i in range(len(list)):  # получаю список чисел, стоящих после запятой
+    cont = str(list[i])
+    res = ""
+    prov = False
+    j = 0
+    while j < len(cont):
+        if cont[j] == ".":
+            prov = True
+        if prov == True and cont[j] != ".":
+            res += cont[j]
+        j += 1
+    res = int(res)
+    list2.append(res)
+print(list2)
+list2.sort()
+print(list2)
+result = list2[-1] - list2[0]
+print(f"{result}-такова разница между максимальным и минимальным значением дробной части элементов!")
